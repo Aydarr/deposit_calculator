@@ -1,0 +1,130 @@
+body{
+    overflow-x: hidden;
+    font-family: Arial, serif;
+    padding: 0;
+    margin: 0 auto;
+}
+@font-face {
+    font-family: Europe;
+    src: url(fonts/europe-normal.ttf);
+}
+#numbers{
+    font-family: Europe;
+    color: #eb5017;
+    font-size: 1.2vw;
+    margin-right: 1em;
+}
+.pre-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+#header, #foot{
+    display: flex;
+    width: 100%;
+    color: #ffffff;
+    font-size: 1.17vw;
+    position: relative;
+    justify-content: center;
+    padding: 0 1em;
+}
+.header-nav{
+    background-color: #231f20;
+    padding: 1em 2em;
+    border-left: solid #eb5017;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+#foot {
+    background-color:#231f20;
+    position: absolute;
+    bottom: 0;
+}
+.footer-nav{
+    display: flex;
+    padding: 1em 2em;
+    vertical-align: center;
+    text-decoration: underline;
+}
+.header-nav:hover{
+    background-color: #eb5017;
+    cursor: pointer;
+}
+.first-tab {
+    border-left: inherit;
+}
+.checked {
+    background-color:#eb5017;
+}
+.bread-crumbs {
+    margin-bottom: 1em;
+}
+#content {
+    padding: 1em 2em 0;
+}
+.underline{
+    text-decoration: underline;
+}
+.calculator {
+    width: 50%;
+    background-color: #f2f2f2;
+    position: relative;
+    font-size: 1vw;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+.calc_title {
+    color: #eb5017;
+    font-size: 2em;
+}
+button {
+    background: linear-gradient(to bottom, #bbf134, #88cf00);
+    color: #3f5b06;
+    padding: 0.5em;
+    border-radius: 15%;
+    border-color: #c4c5c5;
+    font-size: 1em;
+}
+ td.left_side{
+    text-align: right;
+     margin-right: 0;
+     width:30%
+}
+td.right_side{
+    text-align: left;
+    width: 50%;
+}
+.inputs {
+    width: 15em;
+}
+.input_title {
+    position: relative;
+    margin-right: 10%;
+    font-size: 1vw;
+}
+.result_title{
+    color: #3f5b06;padding-left: 1%;
+}
+.result_div{
+     float: inherit;
+ }
+.radio{
+    float: left;
+    position: relative;
+}
+table{
+    font-size: 1em;
+}
+td {
+    height: 5vh;
+    font-weight: normal;
+    font-size: 1.2em;
+
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
