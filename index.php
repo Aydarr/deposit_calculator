@@ -5,9 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles\style.css">
+    <link rel="stylesheet" href="styles\rangeslider.css">
     <script src="scripts\jquery-3.5.1.min.js"></script>
     <script src="scripts\jquery.mask.js"></script>
+    <script src="scripts\rangeslider.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -40,7 +42,10 @@
                     </tr
                     <tr>
                         <td class="left_side"><span class="input_title ">Сумма вклада</span>
-                        <td class="right_side"><span><input type="text" class="inputs sum_input" name="sum_deposit"></span>
+                        <td class="right_side">
+                            <span><input type="number" class="inputs sum_input sum_slider1" name="sum_deposit"></span>
+                         <td class="slide_side"><input type="range" class="slider1" min="0" max="3000000" step="1" value="0">
+
                     </tr>
                     <tr>
                         <td class="left_side"><span class="input_title">Срок вклада</span>
@@ -63,7 +68,9 @@
                     </tr>
                     <tr>
                         <td class="left_side"><span class="input_title">Сумма пополнения вклада</span>
-                        <td class="right_side"><span><input type="text" class="inputs sum_input" name="sum_rep_deposit" disabled></span>
+                        <td class="right_side">
+                            <span><input type="text" class="inputs sum_input sum_slider2" name="sum_rep_deposit" disabled></span>
+                        <td class="slide_side"><input type="range" name="sum_rep_slider" class="slider2" min="0" max="3000000" step="1" value="0">
                     </tr>
                     <tr>
                         <td><button type="submit">Рассчитать</button>
@@ -83,7 +90,53 @@
         <div class="footer-nav">Друзья</div>
         <div class="footer-nav">Интернет-банк</div>
     </footer>
+    <script>
+        var $rangeslider1 = $('.slider1');
+        var $amount1 = $('.sum_slider1');
+
+        $rangeslider1
+            .rangeslider({
+                polyfill: false,
+                onSlide : function( position, value ) {
+                    $('.sum_slider1').val(value)
+                }
+            })
+            .on('input', function() {
+                $amount1[0].value = this.value;
+            });
+
+        $amount1.on('change input', function() {
+            if (this.value === '') {
+                this.value = 0;
+            }
+            $rangeslider1.val(this.value).change();
+        });
+        var $rangeslider2 = $('.slider2');
+        var $amount2 = $('.sum_slider2');
+
+        $rangeslider2
+            .rangeslider({
+                polyfill: false,
+                onSlide : function( position, value ) {
+                    if($($amount2).prop('disabled') === true)
+                        $('.sum_slider2').val(0)
+                    else{
+                        $('.sum_slider2').val(value)
+                    }
+
+                }
+            })
+            .on('input', function() {
+                $amount2[0].value = this.value;
+            });
+
+        $amount2.on('change input', function() {
+            if (this.value === '') {
+                this.value = 0;
+            }
+            $rangeslider2.val(this.value).change();
+        });
+    </script>
     <script src="scripts\script.js"></script>
-    <script src="scripts\jquery-slider-min.js"></script>
 </body>
 </html>
